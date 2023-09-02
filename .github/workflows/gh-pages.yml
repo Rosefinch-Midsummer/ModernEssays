@@ -22,7 +22,7 @@ jobs:
         with:
           token: ${{secrets.GITHUB_TOKEN}}
           use-toc: true
-          toc-version: "~0.7.0"
+          toc-version: 'latest'
 
       - run: mdbook build
 
