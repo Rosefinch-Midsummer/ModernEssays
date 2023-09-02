@@ -1,0 +1,9 @@
+[book]
+authors = ["RM"]
+language = "en"
+multilingual = false
+src = "src"
+title = "Mdbook Template"
+[preprocessor.toc]
+command = "mdbook-toc"
+renderer = ["html"]
