@@ -1,0 +1,329 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>风龙云虎先生作品选摘 - 现代经典</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="弁言.html"><strong aria-hidden="true">1.</strong> 弁言</a></li><li class="chapter-item expanded "><a href="钱穆先生文集选摘.html"><strong aria-hidden="true">2.</strong> 钱穆先生文集选摘</a></li><li class="chapter-item expanded "><a href="余英时作品选摘.html"><strong aria-hidden="true">3.</strong> 余英时作品选摘</a></li><li class="chapter-item expanded "><a href="风龙云虎先生作品选摘.html" class="active"><strong aria-hidden="true">4.</strong> 风龙云虎先生作品选摘</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">现代经典</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="风龙云虎先生作品选摘"><a class="header" href="#风龙云虎先生作品选摘">风龙云虎先生作品选摘</a></h1>
+<ul>
+<li><a href="#%E6%BC%A2%E4%B8%8E%E8%8F%AF%E5%A4%8F%E4%B9%8B%E5%90%8D%E7%9A%84%E7%94%B1%E6%9D%A5">“漢”与“華夏”之名的由来</a></li>
+</ul>
+<h2 id="漢与華夏之名的由来"><a class="header" href="#漢与華夏之名的由来">“漢”与“華夏”之名的由来</a></h2>
+<p>作者：风龙云虎</p>
+<p>汉族之名得自汉朝，这一点非常明确。汉朝做为第一个真正实现中国大一统的政权，两汉合计四百年的辉煌历史，其地位和影响，足以将“漢”的名字与我们民族牢固的合为一体。汉朝之名得自刘邦的汉王封号，漢王之名得自刘邦的封地汉中，而汉中又与漢水有关。到此为止，这都是非常清楚明白的事实，没有多少发挥的余地。关键在于汉水因何得名，而“漢”的字义又究竟为何。</p>
+<blockquote>
+<p>何曰：“今众弗如，百战百败，不死何为？《周书》曰‘天予不取，反受其咎’。语曰‘天汉’，其称甚美。夫能屈于一人之下，而信(伸)于万乘之上者，汤武是也。臣愿大王王汉中。养其民以致贤入，收用巴蜀，还定三秦，天下可图也。”汉王曰“善。”乃遂就国，以何为丞相。——《汉书·萧何传》</p>
+</blockquote>
+<p>显然，“漢”是一个美名，有空中天河（即银河）之意，除“天漢”外，在“云漢”、“星漢”、“霄漢””等词中，“漢”都是指夜空中的灿烂星河，有着宏大无比的意涵，作为汉族的族名可谓实至名归。但“漢”究竟是由地到天，先有汉水后指银河；还是由天到地，先指银河后指汉水呢？</p>
+<p>“漢”明确指银河和汉水，最早记载都在西周时期。</p>
+<p>指宇宙银河的有：</p>
+<blockquote>
+<p>《诗经·大雅·云汉》——倬彼云汉，昭回于天。
+《诗经·小雅·大东》——维天有汉，监亦有光。</p>
+</blockquote>
+<p>指汉江的有：</p>
+<blockquote>
+<p>《国风·周南·汉广》——汉之广矣，不可泳思。江之永矣，不可方思。</p>
+</blockquote>
+<p>既然在文献上难分先后，我们只能从情理上推测了。 有人以为因华夏人务实，必然是先从眼前身边着手，所以命名只能先地上而非天上，这逻辑是否成立呢？古人有云“举目望日，不见长安”，难道中国人会先有洛阳、日照的地名，然后才给太阳命名？距离远近是以人的感受为准，而非机械丈量距离决定，以地上天上来判断与人关系密切程度，思维实太僵化。请问谁会感觉拉美和非洲比太阳、月亮与我们关系更近？周人的中心地域是关中和洛阳，与汉水远隔秦岭和大别山，在周人心目中的地位显然无法与常年可见的银河相比。</p>
+<p>除此之外，“漢”是先用于命名银河，后命名汉水的判定还有一个重要理由：</p>
+<p>“漢”在先秦是银河的唯一名称，而汉水则有诸多别称。以银河的地位，显然不会没有专名，要等着以汉水来命名。</p>
+<p>银河作为夜空中最大星体，以江河命名，显然要取其浩大。如果以现成地上江河之名为天河命名，显然汉水还远不够资格。先秦“江”“河”“汉”都是专有名词，“水”才是江河通称。“河”专指黄河干流，“江”也专指长江干流，放着更大更有影响的“江”“河”之名不用，却以相对偏僻的长江支流，规模和地位影响远不及黄河长江的汉江为天河命名，显然不合情理。一些所谓“漢”字本意不佳的奇谈怪论更是荒谬，如果“漢”本身含义不佳，以敬天为信仰的周人却用来给天河命名，如此对上天大不敬的做法根本是匪夷所思。</p>
+<p>汉的标准字形，虽然正体字写法是“漢”，但其实右侧已经做了简化，“漢”的早期字型如下：</p>
+<p><img src="https://pic1.zhimg.com/80/v2-399afb649d27cb551e1296234eb5f02c_hd.jpg" alt="r" /></p>
+<p>“漢”的本意，在《说文解字》有解释：汉，漾也。东为沧浪水。从水，难省声。</p>
+<p>“漢”的解释还有：从难省，当作堇（意思是难省是发音，会义应该是氵+堇）。而前作相承去土从大（把“堇”下面的“土”写成“大”，变成了漢），疑兼从古文省。</p>
+<p>以及“漾言其微，漢言其盛也”。</p>
+<p>汉同漾，以及漾言其微,汉言其盛也等表述，固然可以理解为漾水和汉水是一条河，初发为漾，盛大后称为汉。但也可以理解为“汉”与漾在字义上有相通之处。漾主要有两种含义：满溢和平缓。对夜空中没有明确边际和沉静不动的银河来说，这是个恰如其分的形容。显然“漢言其盛也”就是指夜空中满溢平缓的天河。</p>
+<p>从会意角度考虑，“漢”的原形为氵+堇，而“堇”的本意是黏土，正与夜空中银河明暗相间，繁星散落的形态相似。</p>
+<p>综上所言，“漢”最早乃是银河的专属之名，而汉水则因“疑是银河落九天”之故被用“漢”命名。</p>
+<p>“漢”还有另一个异体写法</p>
+<p><img src="https://pic2.zhimg.com/80/v2-2aa21bb59db24d818021cc8548cad401_hd.jpg" alt="r" /></p>
+<p>从水，从或（国），从大，这就完全是以汉代表国家民族的含义创造的字形。</p>
+<p>让我们欣赏一下真正的“漢”</p>
+<p><img src="https://pic3.zhimg.com/80/v2-e656f4642c37040633292b05fd854d72_hd.jpg" alt="r" /></p>
+<p><img src="https://pic4.zhimg.com/80/v2-30eb29d3fbaf5f37de4eb316db71a1d3_hd.jpg" alt="r" /></p>
+<p>另：个人感觉“银河”这名称略俗，相比之下“天漢”要更有文化内涵和气魄，所以恢复古称，将银河恢复为“天漢”，应该更合适。</p>
+<p>而在“漢”被用来作为我们民族之名前，我们文明和民族已经有两个自称，“中国”和“華夏”。</p>
+<p>中国的意义很明显，就是字面的中央之国，这个中央，当然不是纯粹的地理意义，因为纯地理是无所谓中央的。只能是以民族本位观念，以自我为中心形成的民族地理和政治地理观念，并最终直接指代民族和文明。</p>
+<p>汉语博大精深，一词多义并存很正常。“中国”一词在华夏内部使用，是与四方相对应的政治地理概念，多指黄河流域中原地区；在华夷之间使用，就是与“四夷”相对应的民族地理概念。某些势力极力要将“中国”去民族化而地域化，宣扬一种中国只是单指一片固定土地范围，没有文化内涵，没有本位意识，谁占领这片土地上都算中国，本质上是一种彻头彻尾的汉奸为异族殖民服务的理论。</p>
+<p>《公羊传·禧公四年》——南夷与北狄交，中国不绝若线。桓公攘夷狄而救中国。</p>
+<p>显然，中国不是固定的土地范围，不是脱离民族和文化存在的死物，而是依附于中华文明的有生命可变体，会随着我们民族和文明的兴盛和扩大，也会在衰落时缩小，更会在汉族丧失独立时灭亡。只有一片土地在我们民族主宰，认同中华文明时，才可以算中国。</p>
+<p>常有人以为“中国”指代国家是现代才有的用法，其实“中国”一直是我们民族和国家的通称，历朝历代从未停用。所谓古代没以中国为正式国号，正是因为没认清中国所具有的强烈民族和文明意涵，导致将“中国”与中国主权下的范围，也就是“天下”混淆了。</p>
+<p>先明确一点，中国古代历朝历代的名号严格的说不能叫“国号”，而是“有天下之号”，既然是“天下”，就是比民族意义上“中国”更大的范围。历史上，中国长期是已知世界一强独大的最先进民族和文明，周边不存在能与中国全方位匹敌的势力。这就形成就了中国“天朝意识”的世界观：天下是以中国为中心的，中国是最高等的民族和国家，是天下的宗主。中国统治者理论上也是天下的统治者，对四夷拥有“华夷一统”的主权。中国和四夷的区分是明确的，但中国与其是内外主从关系，而不是平等并列的关系。中国古代天下观把世界分为三个层次：最内层就是基本与华夏—汉族等同的中国，直属于中央政权；第二层次是各类“属夷”，就是臣服于中国，但不在中央直辖下的各类自治机构，含各种土司和属国；最外一层是未向中国臣服的化外之夷。古代中国实质拥有最高主权的，是最内层的中国+第二层属夷，而现代我们理解的古代中国，则因民族虚无主义下对中国本身的定义错乱，以及对现实国际政治的迁就的功利考虑，使得对历史上的中国丧失了客观理性认识。把第二层又进行了分割，把许多属国排除在中国主权之外，当把这个现代中国概念往古代语境上套时，自然会导致一系列混乱和认知错位。</p>
+<p>古代以中国为核心的册封朝贡天下体系，实质是中国本土大一统后，把先秦的封建体制向外的扩展应用，即以中国为宗主的超级封建体系。接受册封朝贡关系，意味着其国家主权法理来自于中国授予，当地统治者是臣属于中国的代理人，合法性来自中国授权，这与中世纪欧洲乃至全世界封建国家的体制并无不同。事实上，虽然中国对受册封的朝贡国多数情况下由其内部高度自治，但同时也要求其对中国尽臣属的政治义务。并时常会强制要求对方承担经济、军事等义务，干涉其内政的事例也很多。所以中国对属国拥有当然的最高主权，其具体行使与否由中国自主决定。如明朝末年因满清猖獗，朝鲜国王光海君表现出有二心，所以大臣徐光启提出对朝鲜进行“监护”的动议，对此朝鲜政府虽然不满，但也只能通过向明朝辩白表忠心，和到北京私下活动的方式釜底抽薪以中止“监护”实施，绝不敢置疑这不属明朝的权利。如果册封朝贡关系不算封建臣属关系，那所有中世纪封建国家都不能成立，世界历史地图中应该只画出欧洲和世界各封建国家的王室领地，而将分封领主标为外国，世界历史将全面改写。然而没有这种情况发生，这一标准只针对中国，这是赤裸裸的双重标准。</p>
+<p>至于受册封的朝贡国有时存在不够听命，阳奉阴违，甚至公然违命，没尽到臣属的义务等现象，本就是封建体制的痼疾，在全世界所有封建国家中都屡见不鲜。朝贡有时会有厚往薄来，中央对地方的赏赐超过地方进贡，这也是封建国家的常例，其它封建国家没因此而不成立，中国册封朝贡体系同样不该成为例外。</p>
+<p>把朝贡当成与中国建立贸易关系的手段，而不具实质政治主从含义，对未受册封的朝贡国还可以说的通，但对日本、朝鲜、越南、琉球、老挝、缅甸、泰国、蒙古、中亚等这些正式接受中国册封的国家和地区则完全不成立。册封，与欧洲封建领主向君主宣誓效忠一样，是当地统治者确认臣属于中国的仪式，具有法理效力，如果这种程度的主权确认不成立，意味着整个世界历史法理都将被颠覆。</p>
+<p>因为中国具有鲜明的民族和文明含义，中国又不承认有对等外国，而主权又包含了四夷时，以中国为有天下之号不仅无意义，还会导致概念混乱，造成中国意义的虚无化。古代选择以朝代帝号作为中国统治天下之号，但又不妨碍根据实际情况在国内国外使用中国一词。类似英国还是日不落帝国时，民族和文明意义的英国也仅指不列颠本土，而绝不包括海外属地，但这些属地主权属于英国则毫无疑义。</p>
+<p>很多人始终为满清地位纠结，就是因为没认识“中国”的民族文明本位意义，以及中国与中国主权二者存在差别。他们所纠结的民族主义、中国认同与领土主权之间所谓矛盾，其实本不存在。领土主权与属人的身分的分离，是古代乃至近代普遍的常态现象，对一个地方拥有主权，并不意味着当地异族就自动拥有本国国民身分。如近代美国，长期不承认印第安人的国民身份，但同时也绝没放弃印第安地区的领土主权。这在现代以前的世界各国非常普遍。事实上，国家领土上的所有其它民族当然拥有国民资格，仅仅是现代才普及的现象，绝非历史惯例。所以明朝对东北拥有主权，与建奴不是中国人，满清不是中国，并没有矛盾之处。</p>
+<p>明朝长城以北直至黑龙江入海口和库页岛的东北主权无疑属于中国，因为在明朝建立后就对当地进行了主权宣示，并设置了地位机构，而无人有异议时，中国的主权就已经在东北建立了，这片土地的最高主权也就属于中国而非由其它人决定。当地异族是中国臣属，但在没承担与中国人相同的义务前，不具有完整的中国人身分和权利，他们与中国联系是以服从中国统治为前提，一旦叛乱分裂，就等于断绝与中国的关系，成为彻底的外敌。所以自奴儿哈赤叛乱分裂的那一刻起，建奴就已经自绝于中国，是中国的敌人而绝非中国人，明清也必须算中外战争而绝非内战，满清灭明只能是中国的亡国而绝非改朝换代。将满清定位于异族侵略中国，无碍于东北历史上主权属于中国的事实。这道理就如同中国历史上也对蒙古和越南拥有主权，但如果现在蒙古和越南侵略中国，甚至征服中国，也绝不能称之为内战或值得肯定的“统一战争”，这就是中国民族史观与汉奸虚无史观的区别。</p>
+<p>天朝意识现在成了嘲讽用语，做为自大无知的象征而饱受抨击。但要说句公道话：天朝意识作为高度的民族和文明自我中心意识，是拥有持久霸权和文化自信的强国及其国民必然具有的心态，并非中国独有。远如古希腊、古罗马，阿拉伯、奥斯曼，以及近代欧洲列强，乃至现代美欧无不或多或少具有这种意识，甚至一些地区小强也有着类似的“小天朝意识”，天朝意识的强弱直接与其国家的强大和文化影响成正比，中国天朝意识深入人心，恰是因为中国古代一超独强的时间太长。现实中也是落后国家国民对先进国家的往往更关注了解，而先进国家常常对落后国家是鄙夷和无视的，这也是情势的必然。天朝意识本身并不可笑，可笑的是不拥有与之匹配的实力时还死抱天朝意识不放，这就只能自取其辱了。中国现在确实不具备古代拥有天朝意识的实力和地位，但更忌走到反面极端，成为自卑自贱的双标逆向民族分子，为了推托当下自身的无能，而否定过去的光荣历史。相比天朝意识，这更可悲可耻。</p>
+<p>中国必然要树立文明中心意识，不如此无法解决中国的定位，维护中国的利益。毕竟小国可以靠事大生存，而象中国这种拥有自主原生文明，且民族单一的巨型国家，成为主导性强国是唯一选择，因为以中国的体量，根本无从成为附庸，即便我们自己甘心臣服，也仍将被当作威胁，面临宰割分化。如同一只小猫可以靠当宠物舒舒服服的生存，而一只老虎，哪怕再驯服，也难被放心当宠物。</p>
+<p>扯的有点远，希望没使人厌烦。还是回到华夏上来。相对于“中国”，“華夏”是个合成词，“華”和“夏”本是独立称谓，也可合称，皆可用于指代我们的民族。</p>
+<blockquote>
+<p>《尚书·舜典》——蛮夷猾（侵犯）夏。
+《左传·襄公十四年》——我诸戎饮食衣服，不与華同。
+《左传·襄公二十六年》——楚失華夏。
+《左传·定公十年》——裔不谋夏，夷不乱華。（孔子在齐鲁夹谷之会上所言）</p>
+</blockquote>
+<p>现在最广为人知的解释“中国有礼仪之大，故称夏；有服章之美，谓之華。”——出自唐朝孔颖达（孔子三十一世孙）的《春秋左传正义》。虽然这种解释已经满足了许多人的要求，但毕竟此已是中国文化完全成熟后的解读，附会太多，也过于抽象。所以下面尝试追根溯源，将“華”和“夏”的初始本义及其延伸出的文化内涵全部揭示出来。</p>
+<p>“華”，其原始含义是花，且根据《尔雅·释草》中“木谓之華,草谓之荣“，“華”的本义应是树上之花。但究竟是何树何花呢？这一点也能从字义中找到端倪。我们知道古人在名之外还有字，而字普遍是与名相呼应关联的。孔子的弟子中有位名叫公西赤，他的字是”子華“。显然”華“与”赤“是近义，赤的本意是火，所以炎帝也称赤帝。赤按颜色分，则为深红色。那么又是哪一种深红的树花被中国先民如此看重呢？</p>
+<p>我觉得《诗经·周南》中的《桃夭》一篇应该给我们足够提示</p>
+<p>桃之夭夭，灼灼其華，子之于归，宜其室家</p>
+<p>桃树作为起源于中国的本土植物，因其功用在我们文化中占据了重要地位。桃既可食，也有药用价值，作为中国古代最重要的果树，长期以来便被先民视为有驱邪消灾作用的神树，后世端午的桃枝，对联前身的桃符，道士驱鬼的桃木剑，都是肇始于此。在春天交配季节（大雾）盛开的桃花，不仅美丽鲜艳，而且表现着生命活力和预示未来的丰收果实，意味着兴旺与繁盛，自然成为性和生殖的象征，直到今天桃花，桃色这些词汇的深意仍会使人浮想联翩。桃树能同时具有食、性、生育诸方面意义，成为先民崇拜对象也就理所当然了。</p>
+<p>汉族自称炎黄子孙，以黄帝为我们民族和中国的初祖。但缔造汉族文化基础的，是在比黄帝更为久远的时代。中国第一姓，不是黄帝的“姬”，也不是炎帝的“姜”，而是伏羲氏的“风”姓。伏羲氏被称为华夏人文始祖，据记载在这个时代，我们祖先发明了网、笼等工具，渔猎的效率大大提高，并由此开始驯化禽兽。同时举一反三，创造了阴阳八卦，开始主动认识和思考自然与人的关系，开始了文明启蒙。对偶婚姻制度也在此时形成，先民从此脱离了“知其母不知其父”的蒙昧状态，社会关系有了质的改变。</p>
+<p>有人未必了解，在中国传统儒学中，夫妇才是人伦之始。《易经》中说“有天地，然后有万物；有万物，然后有男女；有男女，然后有夫妇；有夫妇，然后有父子；有父子，然后有君臣；有君臣，然后有上下；有上下，然后礼仪有所错”。《中庸》中孔子说“君子之道，造端乎夫妇。及其至也，察乎天地”。人类有了婚姻后，才形成家庭，才有了建立在家庭基础上的复杂社会关系。国是以家为基础构建的，而家是以夫妇为基础构建的，所以一切社会伦理都始于夫妇之道。儒学的把社会伦理的本原建立在家庭伦理上，让整个儒学思想体系立足于家庭的内在需求，不能不说这是中国文明和儒学最伟大的认识，这使我们文明一直保持了强大的生命力，维系了最基本的人性和温情社会，是汉族屡仆屡起，能发展成世界第一大民族和中国长期统一的根源。</p>
+<p>相传伏羲氏的妻子是女娲，同是风姓，说明这时还是在氏族内部通婚，这也是后世把二人说成是兄妹的原因。伏羲女娲以蛇为图腾，留下的形象是人身蛇躯，正是在以蛇为基础，中国人创造出“龙”的形象，龙的传人也是由此而来。更重要的是，伏羲女娲所出身的风姓氏族是“華胥氏”，而华胥氏的另一别名是“赫胥氏”。看到这里，想必诸位已经逐渐认识到“華”的脉络了。赫是赤的升级，意味着更多的火、红、光，再次证明了“華”与这些特质的关联。胥有相伴相随之意，“華胥氏”就是与桃花共生的氏族。</p>
+<p>但这就是最终答案吗？虽然桃树之花应是“華”的原始本义，但这种早期简单的植物崇拜，还难以为我们民族脱离原始状态后的命名提供足够的文化内涵，从桃花发展到后世所具有的各种美好含义，其跨越未免太大。下面请允许我开一点脑洞，做点有合理依据的推测。“華”的含义中，包含了光明。可是桃花哪怕再美丽，再鲜艳，再火红，它也不会发光。这时应该要注意，伏羲氏还有太昊、太皞等名号，而这些名号都是与太阳崇拜相关的，甚至连与“羲”相关的曦字，也表示初升的太阳。</p>
+<p>对于中国上古史，我们后人在承认其基本框架属实的基础上，也必须要认识到，因为过于久远，历史信息的传递会出现相当的变形。比如伏羲这类名号，就不会是单指个人，而是一个时代的代表。中国历史是持续不断的，文化始终处在发展中。事实上，虽然伏羲时代是一个渔猎畜牧的时代，但继承风姓的伏羲后裔却跨越了从神农到五帝、三代多个时代。太皞这个名号就一直传承到黄帝时代。甚至直到春秋时代，仍然有风姓直系诸侯分布于淮北和山东南部，中国人稳定的血统传承实在惊人。</p>
+<blockquote>
+<p>《左传•僖公二十一年》——任、宿、须句、颛臾，风姓也，实司大（同太）皞与有济之祀，以服事诸夏。邾人灭须句。须句子来奔，因成风也。成风为之言于公曰：“崇明祀，保小寡，周礼也；蛮夷猾夏，周祸也。若封须句，是崇皞、济而修祀、纾祸也。”</p>
+</blockquote>
+<p>在进入农业时代后，太阳崇拜开始盛行，伏羲氏的直系后人改称与太阳有关的太昊和太皞也很自然。伏羲氏的桃树崇拜，在后世的五德说转化为五行中的木德，可见文化传承的悠久稳定。在周代的《月令》中，太昊又被尊为主管春季的东方天帝。春天、桃树、如火一样盛开的桃花、东方、太阳，把这些要素结合在一起，是否感觉到有所启发？对中国文化有所了解，很容易就会联想到在东方日出之所，栖居着十个太阳的扶桑神树。</p>
+<blockquote>
+<p>《山海经·海外东经》——汤谷上有扶桑，十日所浴，在黑齿北，居水中。有大木，九日居下枝，一日居上枝。</p>
+</blockquote>
+<blockquote>
+<p>《山海经·大荒东经》——汤谷上有扶木，一日方至，一日方出，皆载于乌。</p>
+</blockquote>
+<p>至此，一套完整的历史文化传承演进演进琏形成了。从上古采集时代开始的“華胥氏”的桃树桃花崇拜，延续至农业时代，与太阳崇拜相结合，最终形成了太阳神树信仰，成为表现光明、兴盛、美好的“華”。到中国文明人文主义发展成熟后，“華”从自然崇拜向人文价值转化，成为中国文明美好辉煌事物的总称，一步步进化，内涵不断丰富累积，这就是“華”成为我们民族称号的由来。</p>
+<p>上述说法并非臆测，而是有实物为证的。请欣赏“華”的文物形象</p>
+<p><img src="https://pic3.zhimg.com/80/v2-1fd732590527e42410cb27be698fed36_hd.jpg" alt="r" /></p>
+<p>这就是三星堆的青铜神树，上停着九个背负太阳的金乌（不是应该有十日吗？当然是有一个正在天上），有龙在树上盘绕，其与文献的吻合已经到了分毫不差的程度。这里正好反驳一下所谓三星堆是外来文化或由异族创立的荒诞说法。中国文明由于规模宏大，文化出现地域化特点实属正常不过的现象。但总有人无视中国各地考古文物，相对于域外，文化共性要远远超过差异。这种处处以分裂和贬低中国文明为目的表现，这正是前面我所说双标逆民心态所致。</p>
+<p>三星堆也证明现代人对华夏先民过于低估。首先是低估华夏文明的影响范围和先民迁徙交流的能力，四川的三星堆发现了浙江良渚的玉琮，还发现了众多玉璋，而同样形制的玉器分布，以中原为中心，东至山东，北至陕北，西至四川，南达广东乃至越南。再就是严重低估了中国古史的可信性，在三星堆以前，很多人把《华阳国志》记载古蜀国的内容当成传说而非信史，现在三星堆青铜人面已经证明““蜀侯蚕丛,其目纵,始称王”是可信的。那《华阳国志•蜀志》中“蜀之为国，肇于人皇，与巴同囿。至黄帝，为其子昌意娶蜀山氏之女，生子高阳，是为帝颛顼；封其支庶于蜀，世为侯伯。历夏、商、周，武王伐纣，蜀与焉。”难道会是无据之谈吗？</p>
+<p>《华阳国志》记载古蜀人是五帝之一颛顼的后人，而据《史记》所说“帝颛顼高阳者，黄帝之孙而昌意之子也。…北至于幽陵，南至于交阯，西至于流沙，东至于蟠木。动静之物，大小之神，日月所照，莫不砥属。”</p>
+<p>再看礼器玉璋的分布图，是否发现与所描述颛顼影响所及的地域惊人的吻合？</p>
+<p><img src="https://pic3.zhimg.com/80/v2-d2684b90ee3011c862c7acee0cfd0c32_hd.jpg" alt="r" /></p>
+<p>这足以证明：上古华夏文明的迁徙能力和影响范围远比许多当代中国人认为的强太多，把五帝时代贬为传说而非信史，这样的论断才是没有根据的立场先行。</p>
+<p>说完了“華”，再来说夏。一提到“夏”，很多人会想当然以为是夏朝的影响，如同“漢”之于汉朝一样。但认识历史最忌胶柱鼓瑟，把不同时代不同人物进行不当类比，要承认不同时代和不同的人都是独特的。夏朝时代，中国还是合众国形态，夏做为第一个“家天下”的天下共主，只算诸侯之长，地位并不稳固，实力虽强于其它诸侯，但没有压倒性优势，别说与中央集权制大一统的汉朝相比，相比商、周也相差甚远。商、周的历史都不短于夏朝，优势和影响力比夏朝只大不小，为何名号没成为我们民族的代称？</p>
+<blockquote>
+<p>《尚书·舜典》——蛮夷猾（侵犯）夏。</p>
+</blockquote>
+<p>显示比夏朝更早的尧舜时代，夏就已经成为我们民族的普遍自称了。如果说这还不足为凭，那舜和禹同属黄帝分支颛顼一系的后裔，而后来的周人，虽然血统上与商人更近，属于黄帝另一分支帝喾一系后裔，但却也自称“夏”，显然“夏”并非夏后氏的专属名号。</p>
+<p>在中国与汉族有长期共存关系的本土民族，如藏、彝、苗等民族，对汉族的称呼也是接近于“夏”的发音。华夏与这些民族分离至少有五千年以上，远早于夏朝，且这些民族都分布于边陲地区，与位于河洛的夏王朝也不具备接触的条件。说明“夏”的使用远早于夏朝，影响也远大于夏朝控制的范围，至少在华与羌系民族分离时，“夏”就已经成为炎黄族群的自称。</p>
+<p>那么“夏”的最初含义是什么？如果说“華”是树，那么夏就是人。相对于“華”具有的早期自然崇拜色彩，夏则从一开始就有着鲜明的人文精神和文化自觉。</p>
+<p>先看夏的字型</p>
+<p><img src="https://pic3.zhimg.com/80/v2-9b3ee1e74e6d111685f8abde8a12640e_hd.jpg" alt="r" /></p>
+<p>释义：夏，中国之人也。从攵从页从臼。臼，两手；攵，两足也。</p>
+<p>“夏”字就是华夏人给自己的自画像，表示“我们”，如果还原为真正的图像，应如下图。</p>
+<p><img src="https://pic3.zhimg.com/80/v2-e286174e53d2d40c0c043c214a518442_hd.jpg" alt="r" /></p>
+<p>这是出自山东嘉祥武梁祠的汉朝造像，左上为神农，左边题榜为“神农氏因宜教田，辟土种谷，以振万民”；右下为黄帝，题榜为：“黄帝多所改作，造兵井田，垂衣裳，立宫宅”。正是靠先民的奋斗，中国成为少数独立开创了原生文明的民族，也是唯一延续至今的原生文明和民族。我们的先人对自己充满了自信和自豪的，所以夏也就有了另一层含义：</p>
+<blockquote>
+<p>《尔雅》——夏，大也。</p>
+</blockquote>
+<p>“夏”用现代口吻表达就是：我们是伟大的民族。</p>
+<p>随着中国文明的一步步发展，“夏”的内涵也一步步增加，逐渐具有中央、正统等一系列含义。至周代，汉语的标准语被称“雅言”，《诗经》中等级最高的诗体被称为“雅”，而雅就是“夏”的假借。而由于华、夏相互联用，也导致了二者词义重合，如一年中最为繁盛兴旺的季节，也被称为“夏”。</p>
+<p>华夏合称，其含义就是：我们是光辉兴盛的伟大民族。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="余英时作品选摘.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="余英时作品选摘.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
